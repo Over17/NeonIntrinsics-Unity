@@ -196,7 +196,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -252,7 +252,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -313,7 +313,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -379,7 +379,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -455,7 +455,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -513,7 +513,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
 
         [BurstCompile]
@@ -579,7 +579,7 @@ public class DotProd_Neon : MonoBehaviour
                 return result;
             }
             else
-                throw new System.NotSupportedException("Neon not supported");
+                return 0;
         }
     }
 }
