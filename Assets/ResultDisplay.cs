@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,7 @@ public class ResultDisplay : MonoBehaviour
         // (100, 101, ..., 100 + rampLength-1)
         var ramp1 = generateRamp(0, rampLength);
         var ramp2 = generateRamp(100, rampLength);
+        var burstPerfMarker = new ProfilerMarker("Bursted");
 
         fixed (short* ramp1ptr = ramp1, ramp2ptr = ramp2)
         {
@@ -38,12 +40,22 @@ public class ResultDisplay : MonoBehaviour
             sb.AppendLine($"Result: {lastResult}")
                 .AppendLine($"elapsedMs time: {timer.ElapsedMilliseconds} ms").AppendLine();
 
+            // Warm-up. First time running bursted version is slower than the subsequent times
+            burstPerfMarker.Begin();
+            timer.Restart();
+            CalculateDotProd.dotProductBurst(ramp1ptr, ramp2ptr, rampLength, trials);
+            timer.Stop();
+            burstPerfMarker.End();
+            long first = timer.ElapsedMilliseconds;
+
             sb.AppendLine("----==== NO NEON, Bursted ====----");
+            burstPerfMarker.Begin();
             timer.Restart();
             lastResult = CalculateDotProd.dotProductBurst(ramp1ptr, ramp2ptr, rampLength, trials);
             timer.Stop();
+            burstPerfMarker.End();
             sb.AppendLine($"Result: {lastResult}")
-                .AppendLine($"elapsedMs time: {timer.ElapsedMilliseconds} ms").AppendLine();
+                .AppendLine($"elapsedMs time: {first}, then {timer.ElapsedMilliseconds} ms").AppendLine();
 
             sb.AppendLine("----==== NEON, no unrolling ====----");
             timer.Restart();
