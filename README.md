@@ -5,7 +5,7 @@ This repository shows basic usage of [Burst C# Neon intrinsics](https://docs.uni
 Please refer to https://github.com/Over17/NeonIntrinsics-Android/ for explanation of what is being calculated and how. The input data is absolutely the same as in the C version.
 Here is the list of what was implemented:
 - pure managed C# scalar version calculation
-- absolutely same function as above, but bursted by just adding the [BurstCompile] attribute - this is a new option comparing to the C version
+- absolutely same function as above, but bursted by just adding the [BurstCompile] attribute - this is a new option comparing to the C version. Unity profiler markers were added to this variant, showing up in the Unity profiler and systrace
 - using Neon intrinsics, same variations as in the C version: plain Neon; manual loop unrolling 2x, 3x, 4x, 6x; SMLAL+SMLAL2; SMLAL+SMLAL2, manually unrolled 2x
 - there is no need for special code to run threads on big cores because Unity already does it by default for you
 - generally, there's no need for warm-up code because loading a Unity app will clock up the CPU enough. However, some interesting finds are explained below
