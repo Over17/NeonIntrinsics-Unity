@@ -1,5 +1,5 @@
 # NeonIntrinsics-Unity
-This repository shows basic usage of Burst C# Neon intrinsics available in Unity. The code is equivalent to that written in C in this repo: https://github.com/Over17/NeonIntrinsics-Android/
+This repository shows basic usage of [Burst C# Neon intrinsics](https://docs.unity3d.com/Packages/com.unity.burst@1.5/api/Unity.Burst.Intrinsics.Arm.Neon.html) available in Unity. The code is equivalent to that written in C in this repo: https://github.com/Over17/NeonIntrinsics-Android/
 
 ## Description
 Please refer to https://github.com/Over17/NeonIntrinsics-Android/ for explanation of what is being calculated and how. The input data is absolutely the same as in the C version.
