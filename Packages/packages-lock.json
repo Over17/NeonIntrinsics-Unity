@@ -73,7 +73,7 @@
       "dependencies": {}
     },
     "com.unity.burst": {
-      "version": "1.5.0-pre.4",
+      "version": "1.5.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
