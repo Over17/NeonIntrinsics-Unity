@@ -33,7 +33,7 @@ A nice addition to the user experience is the Burst inspector, which allows to c
 It's easy to verify that the output code has the expected instructions using the Burst inspector.
 
 ## Prerequisites
-The project was created and built using Unity 2020.1.17f1 and Burst 1.5.0 pre4. I don't see any reason why it wouldn't work with a newer Unity or Burst version.
+The project was created and built using Unity 2020.3.2f1 and Burst 1.5.0. I don't see any reason why it wouldn't work with a newer Unity or Burst version.
 
 ## License
 Licensed under Apache 2.0 license.
