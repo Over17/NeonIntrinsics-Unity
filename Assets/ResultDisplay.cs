@@ -26,6 +26,7 @@ public class ResultDisplay : MonoBehaviour
         // (100, 101, ..., 100 + rampLength-1)
         var ramp1 = generateRamp(0, rampLength);
         var ramp2 = generateRamp(100, rampLength);
+        var noBurstPerfMarker = new ProfilerMarker("Not Bursted");
         var burstPerfMarker = new ProfilerMarker("Bursted");
 
         fixed (short* ramp1ptr = ramp1, ramp2ptr = ramp2)
@@ -34,9 +35,11 @@ public class ResultDisplay : MonoBehaviour
             var timer = new Stopwatch();
 
             sb.AppendLine("----==== NO NEON ====----");
+            noBurstPerfMarker.Begin();
             timer.Restart();
             lastResult = CalculateDotProd.dotProductScalar(ramp1ptr, ramp2ptr, rampLength, trials);
             timer.Stop();
+            noBurstPerfMarker.End();
             sb.AppendLine($"Result: {lastResult}")
                 .AppendLine($"elapsedMs time: {timer.ElapsedMilliseconds} ms").AppendLine();
 
